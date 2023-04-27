@@ -1,4 +1,4 @@
-﻿using CXmlInvoiceGenerator.Common;
+﻿using CXmlInvoiceGenerator.Operations;
 
 namespace CXmlInvoiceGenerator.UnitTests.Common
 {
