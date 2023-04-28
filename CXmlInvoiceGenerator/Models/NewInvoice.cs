@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace CXmlInvoiceGenerator.Models
+﻿namespace CXmlInvoiceGenerator.Models
 {
     public class NewInvoice
     {
@@ -15,23 +13,5 @@ namespace CXmlInvoiceGenerator.Models
         public int VATPercentage { get; set; }
         public int PaymentTermsDays { get; set; }
 
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine($"Id: {Id}");
-            sb.AppendLine($"CustomerId: {CustomerId}");
-            sb.AppendLine($"SalesOrderId: {SalesOrderId}");
-            sb.AppendLine($"CurrencyCode: {CurrencyCode}");
-            sb.AppendLine($"NetAmount: {NetAmount}");
-            sb.AppendLine($"VATAmount: {VATAmount}");
-            sb.AppendLine($"GrossAmount: {GrossAmount}");
-            sb.AppendLine($"VATCode: {VATCode}");
-            sb.AppendLine($"VATPercentage: {VATPercentage}");
-            sb.AppendLine($"PaymentTermsDays: {PaymentTermsDays}");
-
-            return sb.ToString();
-        }
-
     }
-
 }

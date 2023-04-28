@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace CXmlInvoiceGenerator.Models
+﻿namespace CXmlInvoiceGenerator.Models
 {
     public class InvoiceItem
     {
@@ -13,22 +11,5 @@ namespace CXmlInvoiceGenerator.Models
         public int Qty { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal LineTotal { get; set; }
-
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine($"Id: {Id}");
-            sb.AppendLine($"InvoiceId: {InvoiceId}");
-            sb.AppendLine($"StockItemId: {StockItemId}");
-            sb.AppendLine($"Manufacturer: {Manufacturer}");
-            sb.AppendLine($"PartNo: {PartNo}");
-            sb.AppendLine($"Description: {Description}");
-            sb.AppendLine($"Qty: {Qty}");
-            sb.AppendLine($"UnitPrice: {UnitPrice}");
-            sb.AppendLine($"LineTotal: {LineTotal}");
-
-            return sb.ToString();
-        }
     }
-
 }

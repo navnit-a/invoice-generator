@@ -1,4 +1,5 @@
-﻿using CXmlInvoiceGenerator.Builder;
+﻿using CXmlInvoiceGenerator.AppConfig;
+using CXmlInvoiceGenerator.Builder;
 using CXmlInvoiceGenerator.Factory;
 using CXmlInvoiceGenerator.FilesManager;
 using CXmlInvoiceGenerator.Menu;
@@ -19,7 +20,8 @@ internal class Program
         PrettyPrint,
         new InvoiceRepository(InvoiceDbFactory),
         new CXmlBuilder(),
-        new FilesOps(PrettyPrint)
+        new FilesOps(PrettyPrint), 
+        new Config()
     );
 
     private static readonly IPrintInvoiceOperations PrintInvoiceOperations = new PrintInvoiceOperations

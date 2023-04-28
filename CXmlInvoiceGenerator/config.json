@@ -1,0 +1,7 @@
+﻿{
+  "FromIdentity": "Identity - From Config",
+  "ToIdentity": "Identity To - From Config",
+  "SenderIdentity": "Sender - From Config",
+  "SharedSecret": "Shared Secret - From Config",
+  "UserAgent": "Storm Technologies - From Config"
+}

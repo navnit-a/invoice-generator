@@ -1,4 +1,5 @@
-﻿using CXmlInvoiceGenerator.Builder;
+﻿using CXmlInvoiceGenerator.AppConfig;
+using CXmlInvoiceGenerator.Builder;
 using CXmlInvoiceGenerator.FilesManager;
 using CXmlInvoiceGenerator.Print;
 using CXmlInvoiceGenerator.Repository;
@@ -12,18 +13,21 @@ public class GenerateInvoiceOperations : IGenerateInvoiceOperations
     private readonly IInvoiceRepository _invoiceRepository;
     private readonly ICXmlBuilder _xmlBuilder;
     private readonly IFilesOps _fileOps;
+    private readonly IConfig _config;
     private static string Now => DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
     public GenerateInvoiceOperations(
         IPrettyPrint prettyPrint,
         IInvoiceRepository invoiceRepository,
         ICXmlBuilder xmlBuilder,
-        IFilesOps fileOps)
+        IFilesOps fileOps,
+        IConfig config)
     {
         _prettyPrint = prettyPrint;
         _invoiceRepository = invoiceRepository;
         _xmlBuilder = xmlBuilder;
         _fileOps = fileOps;
+        _config = config;
     }
 
     public void GenerateCXmlForNewInvoices()
@@ -61,11 +65,11 @@ public class GenerateInvoiceOperations : IGenerateInvoiceOperations
 
             _xmlBuilder
                 .AddHeader(
-                    "fakeIdentityFrom", 
-                    "fakeIdentityTo", 
-                    "fakeIdentitySender", 
-                    "fakeSharedSecret",
-                    "Storm Technologies")
+                    _config.FromIdentity,
+                    _config.ToIdentity, 
+                    _config.SenderIdentity, 
+                    _config.SharedSecret,
+                    _config.UserAgent)
                 .AddInvoiceDetailRequest(
                     newInvoice.Id, 
                     "standard", 
