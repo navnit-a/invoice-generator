@@ -1,11 +1,11 @@
-﻿using System.Data;
+﻿using CXmlInvoiceGenerator.Models;
 
 namespace CXmlInvoiceGenerator.Repository;
 
 public interface IInvoiceRepository
 {
-    DataTable GetNewInvoices();
-    DataTable GetItemsOnInvoice(int invoiceId);
-    DataRow GetBillingAddressForInvoice(int invoiceId);
-    DataRow GetDeliveryAddressForSalesOrder(int invoiceId);
+    List<NewInvoice> GetNewInvoices();
+    List<InvoiceItem> GetItemsOnInvoice(int invoiceId);
+    BillingAddress GetBillingAddressForInvoice(int invoiceId);
+    DeliveryAddress GetDeliveryAddressForSalesOrder(int salesOrderId);
 }

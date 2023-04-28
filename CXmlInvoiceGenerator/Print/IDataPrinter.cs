@@ -4,6 +4,5 @@ namespace CXmlInvoiceGenerator.Print;
 
 public interface IDataPrinter
 {
-    void PrintTable(DataTable dataTable, string tableTitle);
-    void PrintDataRow(DataRow dataRow, IList<string> columnNames, string title);
+    void PrintTable<T>(List<T> objectList, string tableTitle);
 }
